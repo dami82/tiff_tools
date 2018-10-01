@@ -109,6 +109,8 @@ clip_tiff <- function(tiff_file, px=300, prefix="sub_pic_", show = TRUE) {
   # Simple trick to force the vignette to look good.
   # You can comment the following line
   Sys.sleep(5)
+  Sys.sleep(10)
+  Sys.sleep(10)
 
   message("Done!")
   return(NULL)
