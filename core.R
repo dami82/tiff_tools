@@ -104,6 +104,11 @@ clip_tiff <- function(tiff_file, px=300, prefix="sub_pic_", show = TRUE) {
     } 
   }
   my_pic <- NULL
+  
+  # Make sure to message and return after all images are displayed
+  # Simple trick to force the vignette to look good.
+  # You can comment the following line
+  Sys.sleep(5)
 
   message("Done!")
   return(NULL)
