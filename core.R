@@ -22,10 +22,12 @@ clip_tiff <- function(tiff_file, px=300, prefix="sub_pic_", show = TRUE) {
   #my_pic_mat <- matrix(my_pic[1:(759*715)], ncol = 715, nrow=759)
   #my_pic_mat[1:5,1:5]
   if(show) {
-    XX <- matrix(my_pic[1:(759*715)], ncol = 715, nrow=759)
-    image(t(XX[nrow(XX):1, ]), 
-          col = colorRampPalette(c("black", "white"))(100),
-          main = "Full TIFF preview", axes = FALSE)
+    tryCatch({
+      XX <- matrix(my_pic[1:(dim(XX)[1]*dim(XX)[2])], ncol = dim(XX)[1], nrow=dim(XX)[2])
+      image(t(XX[nrow(XX):1, ]), 
+            col = colorRampPalette(c("black", "white"))(100),
+            main = "Full TIFF preview", axes = FALSE)
+    }, error = function(e) NULL)
   }
   # dim(my_pic)
   # length(my_pic)
