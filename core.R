@@ -23,13 +23,15 @@ clip_tiff <- function(tiff_file, px=300, prefix="sub_pic_", show = TRUE) {
   #my_pic_mat[1:5,1:5]
   if(show) {
     tryCatch({
-      XX <- matrix(my_pic[1:(dim(my_pic)[1]*dim(my_pic)[2])], 
-                   ncol = dim(my_pic)[2], nrow=dim(my_pic)[1])
+      #XX <- matrix(my_pic[1:(dim(my_pic)[1]*dim(my_pic)[2])], 
+      #             ncol = dim(my_pic)[2], nrow=dim(my_pic)[1])
+      #plot(as.raster(XX))
+      #
       #image(t(XX[nrow(XX):1, ]), 
       #      col = colorRampPalette(c("black", "white"))(100),
       #      main = "Full TIFF preview", axes = FALSE)
       
-      plot(as.raster(XX))
+      plot(as.raster(my_pic))
       title("Full TIFF preview")
       
     }, error = function(e) NULL)
